@@ -1,19 +1,19 @@
 #import pygame
 #from moviepy.editor import VideoFileClip
-#from ctypes import windll, c_int, c_uint, c_ulong, POINTER, byref
+from ctypes import windll, c_int, c_uint, c_ulong, POINTER, byref
 from multiprocessing import Process
 import asyncio, datetime, json, os
 
 _RUNAT_DATA_FILE = ".erreng_exec_data.json"
 
 def _load_runat_exec():
-    _if os.path.exists(RUNAT_DATA_FILE):
-        _with open(RUNAT_DATA_FILE, "r") as file:
+    if os.path.exists(RUNAT_DATA_FILE):
+        with open(RUNAT_DATA_FILE, "r") as file:
             return json.load(file)
     return {}
     
 def _save_runat_exec(state):
-    _with open(RUNAT_DATA_FILE, "w") as file:
+    with open(RUNAT_DATA_FILE, "w") as file:
         json.dump(state, file)
 
 runat_data = _load_runat_exec()
