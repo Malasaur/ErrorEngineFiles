@@ -4,7 +4,7 @@ from ctypes import windll, c_int, c_uint, c_ulong, POINTER, byref
 from multiprocessing import Process
 import asyncio, datetime, json, os
 
-_RUNAT_DATA_FILE = ".erreng_exec_data.json"
+RUNAT_DATA_FILE = ".erreng_exec_data.json"
 
 def _load_runat_exec():
     if os.path.exists(RUNAT_DATA_FILE):
