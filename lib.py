@@ -1,10 +1,13 @@
-#import pygame
-#from moviepy.editor import VideoFileClip
+import pygame
+from moviepy.editor import VideoFileClip
 from ctypes import windll, c_int, c_uint, c_ulong, POINTER, byref
 from multiprocessing import Process
-import asyncio, datetime, json, os
+import asyncio, datetime, json, os, sys
+
+os.chdir("C:\\Users\\Public\\ERRENG")
 
 RUNAT_DATA_FILE = ".erreng_exec_data.json"
+ERRENG_DATA_FILE = "data.json"
 
 def _load_runat_exec():
     if os.path.exists(RUNAT_DATA_FILE):
@@ -97,3 +100,6 @@ def lag(x=10000):
     for _ in range(x):
         p = multiprocessing.Process(target=_work)
         p.start()
+
+def getID():
+    return json.load(open("data.json"))["ID"]
