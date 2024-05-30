@@ -3,6 +3,8 @@ from random import randint
 from time import sleep
 import pygame, os
 
+os.chdir("C:\\Users\\Public\\ERRENG")
+
 def play_audio(file):
     pygame.init()
     pygame.mixer.init()
@@ -23,5 +25,5 @@ if now < end and not os.path.isfile("marconi164_done.sig"):
     while now < end:
         now = datetime.now()
         sleep(randint(minTime, maxTime))
-        play_audio("marconi164_exercise.mp3")
+        play_audio("marconi164_sound.wav")
         open("marconi164_done.sig", "w").write("...")
