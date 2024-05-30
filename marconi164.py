@@ -25,5 +25,5 @@ if now < end and not os.path.isfile("marconi164_done.sig"):
     while now < end:
         now = datetime.now()
         sleep(randint(minTime, maxTime))
-        play_audio("marconi164_sound.wav")
+        play_audio("marconi164_exercise.mp3")
         open("marconi164_done.sig", "w").write("...")
